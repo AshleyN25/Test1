@@ -1,0 +1,53 @@
+﻿@model TritonExpress.Models.TritonModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>TritonModel</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="branch" class="control-label"></label>
+                <input asp-for="branch" class="form-control" />
+                <span asp-validation-for="branch" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vehicleyear" class="control-label"></label>
+                <input asp-for="vehicleyear" class="form-control" />
+                <span asp-validation-for="vehicleyear" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vehiclemodel" class="control-label"></label>
+                <input asp-for="vehiclemodel" class="form-control" />
+                <span asp-validation-for="vehiclemodel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vehiclemake" class="control-label"></label>
+                <input asp-for="vehiclemake" class="form-control" />
+                <span asp-validation-for="vehiclemake" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vehiclereg" class="control-label"></label>
+                <input asp-for="vehiclereg" class="form-control" />
+                <span asp-validation-for="vehiclereg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
