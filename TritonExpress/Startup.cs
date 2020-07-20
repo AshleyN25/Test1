@@ -55,7 +55,7 @@ namespace TritonExpress
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=TritonModels}/{action=Index}/{id?}");
+                    pattern: "{controller=TritonExpressVehicles}/{action=Index}/{id?}");
             });
         }
     }

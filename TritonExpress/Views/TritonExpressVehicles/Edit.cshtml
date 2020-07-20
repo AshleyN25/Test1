@@ -1,4 +1,4 @@
-﻿@model TritonExpress.Models.TritonModel
+﻿@model TritonExpress.Models.TritonExpressVehicle
 
 @{
     ViewData["Title"] = "Edit";
@@ -6,7 +6,7 @@
 
 <h1>Edit</h1>
 
-<h4>TritonModel</h4>
+<h4>TritonExpressVehicle</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -24,19 +24,27 @@
                 <span asp-validation-for="vehicleyear" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="vehiclemodel" class="control-label"></label>
-                <input asp-for="vehiclemodel" class="form-control" />
-                <span asp-validation-for="vehiclemodel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="vehiclemake" class="control-label"></label>
                 <input asp-for="vehiclemake" class="form-control" />
                 <span asp-validation-for="vehiclemake" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="vehiclemodel" class="control-label"></label>
+                <input asp-for="vehiclemodel" class="form-control" />
+                <span asp-validation-for="vehiclemodel" class="text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="vehiclereg" class="control-label"></label>
                 <input asp-for="vehiclereg" class="form-control" />
                 <span asp-validation-for="vehiclereg" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="wayBillID" class="control-label"></label>
+                <select asp-for="wayBillID"
+                        class="form-control"
+                        asp-items="@(new SelectList(ViewBag.ListOfWaybillEdit, "wayBillID","RecipientName"))">
+                </select>
+                <span asp-validation-for="wayBillID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

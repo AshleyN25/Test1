@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace TritonExpress.Models
 {
-    public class TritonModel
+    public class TritonExpressVehicle
     {
         [Key]
         public int ID { get; set; }
@@ -24,7 +24,9 @@ namespace TritonExpress.Models
         [Required]
         [Display(Name = "Vehicle Registration")]
         public string vehiclereg { get; set; }
-        
+        [Display(Name = "WayBill")]
+        public int wayBillID { get; set; }
+
         [NotMapped]
         public List<SelectListItem> branches = new List<SelectListItem>
         {

@@ -1,0 +1,65 @@
+﻿@model IEnumerable<TritonExpress.Models.TritonExpressVehicle>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.branch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vehicleyear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vehiclemake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vehiclemodel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vehiclereg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wayBillID)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.branch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vehicleyear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vehiclemake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vehiclemodel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vehiclereg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wayBillID)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

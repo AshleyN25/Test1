@@ -45,7 +45,9 @@ namespace TritonExpress.Controllers
         // GET: TritonModels/Create
         public IActionResult Create()
         {
-            return View();
+            TritonModel model = new TritonModel();
+            model.branch = "Select";
+            return View(model);
         }
 
         // POST: TritonModels/Create
@@ -77,6 +79,8 @@ namespace TritonExpress.Controllers
             {
                 return NotFound();
             }
+
+            tritonModel.branch = "Select";
             return View(tritonModel);
         }
 

@@ -14,7 +14,7 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="branch" class="control-label"></label>
-                <input asp-for="branch" class="form-control" />
+                <select asp-for="branch" class="form-control" asp-items="Model.branches"></select>
                 <span asp-validation-for="branch" class="text-danger"></span>
             </div>
             <div class="form-group">

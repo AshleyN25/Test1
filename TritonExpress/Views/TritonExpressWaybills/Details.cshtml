@@ -1,0 +1,60 @@
+﻿@model TritonExpress.Models.TritonExpressWaybill
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>TritonExpressWaybill</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.RecipientName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.RecipientName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Cell)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Cell)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WayBillInfo)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WayBillInfo)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.WayBillweight)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.WayBillweight)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.NumberOfParcels)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.NumberOfParcels)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.wayBillID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

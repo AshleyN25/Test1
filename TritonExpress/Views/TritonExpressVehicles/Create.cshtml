@@ -1,18 +1,17 @@
-﻿@model TritonExpress.Models.TritonModel
+﻿@model TritonExpress.Models.TritonExpressVehicle
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
 }
 
-<h1>Edit</h1>
+<h1>Create</h1>
 
-<h4>TritonModel</h4>
+<h4>TritonExpressVehicle</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
+        <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="ID" />
             <div class="form-group">
                 <label asp-for="branch" class="control-label"></label>
                 <select asp-for="branch" class="form-control" asp-items="Model.branches"></select>
@@ -24,14 +23,14 @@
                 <span asp-validation-for="vehicleyear" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="vehiclemodel" class="control-label"></label>
-                <input asp-for="vehiclemodel" class="form-control" />
-                <span asp-validation-for="vehiclemodel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
                 <label asp-for="vehiclemake" class="control-label"></label>
                 <input asp-for="vehiclemake" class="form-control" />
                 <span asp-validation-for="vehiclemake" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="vehiclemodel" class="control-label"></label>
+                <input asp-for="vehiclemodel" class="form-control" />
+                <span asp-validation-for="vehiclemodel" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="vehiclereg" class="control-label"></label>
@@ -39,7 +38,15 @@
                 <span asp-validation-for="vehiclereg" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <label asp-for="wayBillID" class="control-label"></label>
+                <select asp-for="wayBillID"
+                        class="form-control"
+                        asp-items="@(new SelectList(ViewBag.ListOfWaybill, "wayBillID","RecipientName"))">
+                </select>
+                <span asp-validation-for="wayBillID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

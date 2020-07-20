@@ -1,0 +1,53 @@
+﻿@model IEnumerable<TritonExpress.Models.TritonWaybill>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VehicleID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WayBillInfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WauBillweight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfParcels)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VehicleID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WayBillInfo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WauBillweight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfParcels)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.wayBillID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.wayBillID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.wayBillID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
