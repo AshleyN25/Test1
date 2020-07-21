@@ -1,0 +1,82 @@
+﻿@model IEnumerable<TritonMVC.Models.VehicleViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+<p>
+    <a href="@Url.Action("AddOrEdit","Vehicle")" class="btn btn-default"><i class="fa fa-plus"></i>Create New</a>@*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table table-striped">
+    <thead class="table-heading">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.branch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vehicleyear)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vehiclemake)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vehiclemodel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.vehiclereg)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.wayBillID)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.branch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vehicleyear)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vehiclemake)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vehiclemodel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.vehiclereg)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.wayBillID)
+            </td>
+            <td>
+                <a href="@Url.Action("AddOrEdit","Vehicle",new {id = item.ID })" class="btn btn-default"><i class="fa fa-pencil"></i>Edit</a>
+                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                <a onclick="Delete(@item.ID)" class="btn btn-default"><i class="fa fa-trash"></i>Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+
+@section scripts{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["SuccessV"]'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        });
+        function Delete(id) {
+            alertify.confirm('Delete!', 'Are you sure?', function () {
+                window.location.href = '@Url.Action("Delete","Vehicle")/' + id;
+            }, null);
+        }
+    </script>
+}

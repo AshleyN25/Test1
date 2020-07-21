@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAPI", "WebAPI\WebAPI.csproj", "{A077C8FC-BA4D-44DF-9667-63E24DF942FD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TritonMVC", "TritonMVC\TritonMVC.csproj", "{863EC3E6-4614-4F49-B683-228AA84AB0CE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A077C8FC-BA4D-44DF-9667-63E24DF942FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A077C8FC-BA4D-44DF-9667-63E24DF942FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A077C8FC-BA4D-44DF-9667-63E24DF942FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A077C8FC-BA4D-44DF-9667-63E24DF942FD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{863EC3E6-4614-4F49-B683-228AA84AB0CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{863EC3E6-4614-4F49-B683-228AA84AB0CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{863EC3E6-4614-4F49-B683-228AA84AB0CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{863EC3E6-4614-4F49-B683-228AA84AB0CE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0EAA11B4-3F41-41C5-A635-D54F852BC3D0}
+	EndGlobalSection
+EndGlobal

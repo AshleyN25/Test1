@@ -1,0 +1,93 @@
+﻿@model IEnumerable<TritonMVC.Models.WaybillViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+<p>
+    <a href="@Url.Action("AddOrEdit","Waybill")" class="btn btn-default"><i class="fa fa-plus"></i>Create New</a>@*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table table-striped">
+    <thead class="table-heading">
+        <tr>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.wayBillID)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.RecipientName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cell)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WayBillInfo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WayBillweight)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumberOfParcels)
+            </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.wayBillID)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.RecipientName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cell)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WayBillInfo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WayBillweight)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumberOfParcels)
+            </td>
+            <td>
+                <a href="@Url.Action("AddOrEdit","Waybill",new {id = item.wayBillID })" class="btn btn-default"><i class="fa fa-pencil"></i>Edit</a>
+                @*@Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |*@
+                <a onclick="Delete(@item.wayBillID)" class="btn btn-default"><i class="fa fa-trash"></i>Delete</a>
+            </td>
+        </tr>
+    }
+
+</table>
+
+@section scripts{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["SuccessW"]'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        });
+        function Delete(id) {
+            alertify.confirm('Delete!', 'Are you sure?', function () {
+                window.location.href = '@Url.Action("Delete","Waybill")/' + id;
+            }, null);
+        }
+    </script>
+}
