@@ -19,9 +19,21 @@ namespace TritonExpress.Controllers
         }
 
         // GET: TritonExpressVehicles
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.TritonExpressVehicle.ToListAsync());
+            ViewData["CurrentFilter"] = searchString;
+            var vehicle = from s in _context.TritonExpressVehicle
+                          select s;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                vehicle = vehicle.Where(s => s.vehiclemake.Contains(searchString)
+                                       || s.vehiclemodel.Contains(searchString)
+                                       || s.vehiclereg.Contains(searchString)
+                                       || Convert.ToString(s.vehicleyear).Contains(searchString)
+                                       || Convert.ToString(s.wayBillID).Contains(searchString)
+                                       || s.branch.Contains(searchString));
+            }
+            return View(await vehicle.AsNoTracking().ToListAsync());
         }
 
         // GET: TritonExpressVehicles/Details/5
@@ -164,6 +176,11 @@ namespace TritonExpress.Controllers
         private bool TritonExpressVehicleExists(int id)
         {
             return _context.TritonExpressVehicle.Any(e => e.ID == id);
+        }
+
+        public ActionResult Changes()
+        {
+            return RedirectToAction("Index", "TritonExpressWaybills");
         }
     }
 }

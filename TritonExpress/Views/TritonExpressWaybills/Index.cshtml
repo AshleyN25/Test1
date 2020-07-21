@@ -4,23 +4,22 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-primary"><i class="fa fa-plus"></i><b>Add New Waybill</b></a>
 </p>
-
+<p>
+    @Html.ActionLink("Vehicles", "Index", "TritonExpressVehicles", null, null)
+</p>
 <form asp-action="Index" method="get">
-    <div class="form-actions no-color">
+    <div class="form-actions no-color" style="float:right">
         <p>
-            Find by name: <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
-            <input type="submit" value="Search" class="btn btn-default" /> |
-            <a asp-action="Index">Back to Full List</a>
+            <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-secondary" />
         </p>
     </div>
 </form>
 
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
@@ -35,9 +34,7 @@
             <th>
                 <a asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParm"]">@Html.DisplayNameFor(model => model.Date)</a>
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.WayBillInfo)
-            </th>
+         
             <th>
                 @Html.DisplayNameFor(model => model.WayBillweight)
             </th>
@@ -48,35 +45,34 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.RecipientName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Address)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cell)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WayBillInfo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.WayBillweight)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.NumberOfParcels)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.wayBillID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.wayBillID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.wayBillID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RecipientName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cell)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+             
+                <td>
+                    @Html.DisplayFor(modelItem => item.WayBillweight)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NumberOfParcels)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.wayBillID" class="btn btn-warning"><i class="fa fa-pencil"></i>Edit</a><br/>
+                    <a asp-action="Details" asp-route-id="@item.wayBillID" class="btn btn-success"><i class="fa fa-info-circle"></i>Details</a><br/>
+                    <a asp-action="Delete" asp-route-id="@item.wayBillID" class="btn btn-danger"><i class="fa fa-trash"></i>Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
