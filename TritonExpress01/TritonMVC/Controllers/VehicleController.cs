@@ -16,11 +16,17 @@ namespace TritonMVC.Controllers
             IEnumerable<VehicleViewModel> vehicleList;
             HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("TritonExpressVehicles").Result;
             vehicleList = response.Content.ReadAsAsync<IEnumerable<VehicleViewModel>>().Result;
+
             return View(vehicleList);
         }
 
         public ActionResult AddorEdit(int id = 0)
         {
+            List<WaybillViewModel> tritonwaybillList = new List<WaybillViewModel>();
+            HttpResponseMessage waybillresponse = GlobalVariables.WebApiClient.GetAsync("TritonExpressWaybills").Result;
+            tritonwaybillList = waybillresponse.Content.ReadAsAsync<List<WaybillViewModel>>().Result;
+            ViewBag.ListOfWaybill = tritonwaybillList;
+
             if (id == 0)
             {
                 return View(new VehicleViewModel());
