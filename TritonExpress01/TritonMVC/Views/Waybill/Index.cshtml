@@ -7,8 +7,22 @@
 <br />
 
 <p>
-    <a href="@Url.Action("AddOrEdit","Waybill")" class="btn btn-default"><i class="fa fa-plus"></i>Create New</a>@*@Html.ActionLink("Create New", "Create")*@
+    <a href="@Url.Action("AddOrEdit","Waybill")" class="btn btn-primary"><i class="fa fa-plus"></i>Add New Waybill</a>@*@Html.ActionLink("Create New", "Create")*@
 </p>
+
+<p>
+    <a href="@Url.Action("Index","Vehicle")" class="btn btn-light">Go To Vehicles</a>
+</p>
+
+<form asp-action="Index" method="get">
+    <div class="form-actions no-color" style="float:right">
+        <p>
+            <input type="text" name="SearchString" value="@ViewData["currentFilter"]" />
+            <input type="submit" value="Search" class="btn btn-secondary" />
+        </p>
+    </div>
+</form>
+
 <table class="table table-striped">
     <thead class="table-heading">
         <tr>

@@ -11,11 +11,24 @@ namespace TritonMVC.Controllers
     public class VehicleController : Controller
     {
         // GET: Vehicle
-        public ActionResult Index()
+        public ActionResult Index(string searchString)
         {
+            
+            ViewData["CurrentFilter"] = searchString;
             IEnumerable<VehicleViewModel> vehicleList;
             HttpResponseMessage response = GlobalVariables.WebApiClient.GetAsync("TritonExpressVehicles").Result;
             vehicleList = response.Content.ReadAsAsync<IEnumerable<VehicleViewModel>>().Result;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                searchString = searchString.ToLower();
+                vehicleList = vehicleList.Where(s => s.vehiclemake.ToLower().Contains(searchString)
+                                       || s.vehiclemodel.ToLower().Contains(searchString)
+                                       || s.vehiclereg.ToLower().Contains(searchString)
+                                       || Convert.ToString(s.vehicleyear).Contains(searchString)
+                                       || Convert.ToString(s.wayBillID).Contains(searchString)
+                                       || s.branch.ToLower().Contains(searchString));
+            }
 
             return View(vehicleList);
         }
